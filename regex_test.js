@@ -1,5 +1,10 @@
 import { assert, assertFalse } from "jsr:@std/assert";
-import { validHexadecimal, validIpv4, validUrl } from "./someREGEX.js";
+import {
+  validHexadecimal,
+  validIpv4,
+  validUrl,
+  validUSNumber,
+} from "./someREGEX.js";
 
 Deno.test("valid IPV4", () => assert(validIpv4.test("1.1.1.1")));
 Deno.test("IPV4 highest range", () =>
@@ -66,4 +71,27 @@ Deno.test("url with out value", () =>
 );
 Deno.test("url without domain", () =>
   assertFalse(validUrl.test("http://.com"))
+);
+
+Deno.test("mobilenumber", () => assert(validUSNumber.test("1234567890")));
+Deno.test("mobilenumber saperated by spaces", () =>
+  assert(validUSNumber.test("123 456 7890"))
+);
+Deno.test("mobilenumber code in paranthesis saperated by spaces", () =>
+  assert(validUSNumber.test("(123) 456 7890"))
+);
+Deno.test("mobilenumber saperated by hypen", () =>
+  assert(validUSNumber.test("123-456-7890"))
+);
+Deno.test("mobilenumber saperated by dot", () =>
+  assert(validUSNumber.test("123.456.7890"))
+);
+Deno.test("mobilenumber saperated by @", () =>
+  assertFalse(validUSNumber.test("123@456@7890"))
+);
+Deno.test("mobilenumber having less digits", () =>
+  assertFalse(validUSNumber.test("1237890"))
+);
+Deno.test("mobilenumber having more digits", () =>
+  assertFalse(validUSNumber.test("12345678901"))
 );

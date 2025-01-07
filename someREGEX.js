@@ -6,4 +6,4 @@ export const validHexadecimal = /^(0x|0X|)?[a-fA-F\d]+$/;
 export const validUrl =
   /^https?:\/\/(\w[\w-]*\w\.)+\w+(:\d+)?(\/[\w-_]+)*(\?\w+=\w+(&\w+=\w+)?)?$/i;
 
-export const validUSNumber = /^$/;
+export const validUSNumber = /^\(?\d{3}\)?([. -])\d{3}\1\d{4}$|^\d{10}$/;

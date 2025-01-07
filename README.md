@@ -53,12 +53,14 @@
 
 ## 4. Create a regex pattern that validates a US phone number in the following formats:
 
-(123) 456-7890
-123-456-7890
-123.456.7890
-1234567890
-Requirements
-The area code should be enclosed in parentheses (123), or as plain numbers 123.
-The separator between number groups can be a space, period, or hyphen.
-It should handle 10 digits in total.
-It should not allow anything other than digits, spaces, periods, or hyphens.
+- (123) 456-7890
+- 123-456-7890
+- 123.456.7890
+- 1234567890
+
+## Requirements
+
+- The area code should be enclosed in parentheses (123), or as plain numbers 123.
+- The separator between number groups can be a space, period, or hyphen.
+- It should handle 10 digits in total.
+- It should not allow anything other than digits, spaces, periods, or hyphens.
