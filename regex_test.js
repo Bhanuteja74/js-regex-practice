@@ -1,9 +1,11 @@
-import { assert, assertFalse } from "jsr:@std/assert";
+import { assert, assertEquals, assertFalse } from "jsr:@std/assert";
 import {
+  information,
   validHexadecimal,
   validIpv4,
   validUrl,
   validUSNumber,
+  wordFollowedByAt,
 } from "./someREGEX.js";
 
 Deno.test("valid IPV4", () => assert(validIpv4.test("1.1.1.1")));
@@ -95,3 +97,11 @@ Deno.test("mobilenumber having less digits", () =>
 Deno.test("mobilenumber having more digits", () =>
   assertFalse(validUSNumber.test("12345678901"))
 );
+
+Deno.test("words followed by 'at' (practicing positive lookahead)", () => {
+  assertEquals(information.match(wordFollowedByAt), [
+    "began",
+    "Bob",
+    "Charlie",
+  ]);
+});

@@ -64,3 +64,42 @@
 - The separator between number groups can be a space, period, or hyphen.
 - It should handle 10 digits in total.
 - It should not allow anything other than digits, spaces, periods, or hyphens.
+
+# 5. Text:
+
+Alice's adventure began at 9:00 AM.
+She met Bob at 10:15 AM and later saw Charlie at 2:45 PM.
+Alice loves apples, but Bob prefers bananas and cherries.
+Today, she visited www.example.com and emailed bob@example.com.
+
+## Challenges:
+
+- Match all words that are followed by "at" using a positive lookahead.
+  Expected output: ["began", "Bob", "Charlie"]
+
+- Match times (e.g., "9:00 AM") that are preceded by a word using a positive lookbehind.
+  Expected output: ["9:00 AM", "10:15 AM", "2:45 PM"]
+
+- Match all words ending with "s" that are NOT immediately followed by "e" using a negative lookahead.
+  Expected output: ["loves", "bananas", "cherries"]
+
+- Match only the domain names in email addresses using a positive lookbehind and lookahead.
+  Expected output: ["example"]
+
+- Match the first "a" in each word lazily.
+  Expected output: ["A", "a", "a", "a", "a", "a"]
+
+- Find all words containing "e" or "a" using the pipe operator.
+  Expected output: ["Alice", "adventure", "began", "met", "Charlie", "apples", "bananas", "cherries", "example.com", "bob@example.com"]
+
+- Match any time formatted as "X:XX [AM/PM]" (e.g., "9:00 AM") using lazy search.
+  Expected output: ["9:00 AM", "10:15 AM", "2:45 PM"]
+
+- Find all URLs in the text.
+  Expected output: ["www.example.com"]
+
+- Match all occurrences of "Bob" or "Alice" using the pipe operator.
+  Expected output: ["Alice", "Bob"]
+
+- Find all words that start with "b" and are NOT followed by "a" using a negative lookahead.
+  Expected output: ["Bob"]
