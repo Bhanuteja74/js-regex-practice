@@ -51,7 +51,7 @@
 - http://-invalid.com
 - http://site,com
 
-## 4. Create a regex pattern that validates a US phone number in the following formats:
+# 4. Create a regex pattern that validates a US phone number in the following formats:
 
 - (123) 456-7890
 - 123-456-7890
